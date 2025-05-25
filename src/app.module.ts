@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { InMemoryTransactionRepository } from './infra/memory/transaction-memory.repository';
+import { INJECTION_TOKENS } from './domain/constants/injection-tokens';
+
+
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    {
+      provide: INJECTION_TOKENS.TRANSACTION_REPOSITORY,
+      useClass: InMemoryTransactionRepository,
+    }
+  ],
+  exports: [INJECTION_TOKENS.TRANSACTION_REPOSITORY],
 })
 export class AppModule {}
