@@ -8,7 +8,7 @@ import {
   import { TransactionRepository } from '../../domain/repositories/transaction-repository.interface';
   import { INJECTION_TOKENS } from '../../domain/constants/injection-tokens';
   import { Logger } from '../../domain/interfaces/logger.interface';
-  import { CreateTransactionInput } from '../dtos/create-transaction-input.dto';
+  import { CreateTransactionInput } from '../dtos/request/create-transaction-input.dto';
   
   @Injectable()
   export class CreateTransactionUseCase {

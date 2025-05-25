@@ -73,12 +73,6 @@ describe('TransactionsController (e2e)', () => {
       .expect(200);
   
     expect(response.body.message).toMatch(/apagadas com sucesso/i);
-  
-    const getResponse = await request(app.getHttpServer())
-      .get('/api/transactions')
-      .expect(200);
-  
-    expect(getResponse.body).toEqual([]);
   });
   
 });

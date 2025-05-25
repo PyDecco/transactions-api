@@ -17,4 +17,10 @@ export class InMemoryTransactionRepository implements TransactionRepository {
   async deleteAll(): Promise<void> {
     this.transactions = [];
   }
+
+  async findRecent(seconds: number): Promise<Transaction[]> {
+    const now = new Date();
+    const cutoff = new Date(now.getTime() - seconds * 1000);
+    return this.transactions.filter(t => t.timestamp >= cutoff);
+  }
 }

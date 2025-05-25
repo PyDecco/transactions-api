@@ -13,6 +13,7 @@ describe('CreateTransactionUseCase', () => {
       add: jest.fn(),
       findAll: jest.fn(),
       deleteAll: jest.fn(),
+      findRecent: jest.fn(),
     };
 
     mockLogger = {
