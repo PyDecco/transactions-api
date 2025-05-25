@@ -57,4 +57,28 @@ describe('TransactionsController (e2e)', () => {
       })
       .expect(400);
   });
+
+  it('deve remover todas as transações com sucesso (DELETE)', async () => {
+    await request(app.getHttpServer())
+      .post('/api/transactions')
+      .send({
+        amount: 100,
+        timestamp: new Date().toISOString(),
+      })
+      .expect(201);
+  
+
+    const response = await request(app.getHttpServer())
+      .delete('/api/transactions')
+      .expect(200);
+  
+    expect(response.body.message).toMatch(/apagadas com sucesso/i);
+  
+    const getResponse = await request(app.getHttpServer())
+      .get('/api/transactions')
+      .expect(200);
+  
+    expect(getResponse.body).toEqual([]);
+  });
+  
 });

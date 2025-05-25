@@ -13,4 +13,8 @@ export class InMemoryTransactionRepository implements TransactionRepository {
   async findAll(): Promise<Transaction[]> {
     return this.transactions;
   }
+
+  async deleteAll(): Promise<void> {
+    this.transactions = [];
+  }
 }
