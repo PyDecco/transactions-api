@@ -114,7 +114,7 @@ curl -X POST http://localhost:3000/api/transactions \
 ### Buscar estatísticas
 
 ```bash
-curl http://localhost:3000/api/statistics
+curl http://localhost:3000/api/transactions/statistics
 ```
 
 ### Deletar todas as transações
