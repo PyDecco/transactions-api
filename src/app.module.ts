@@ -4,7 +4,6 @@ import { TransactionsController } from './controllers/transaction.controller';
 import { InMemoryTransactionRepository } from './repositories/transaction-memory.repository';
 import { PinoLogger } from './infra/logger/logger.service';
 
-// Use Cases
 import { CreateTransactionUseCase } from './use-cases/create-transaction.use-case';
 import { DeleteAllTransactionsUseCase } from './use-cases/delete-all-transactions.use-case';
 import { GetStatisticsUseCase } from './use-cases/get-statistics.use-case';
