@@ -1,19 +1,19 @@
 import { Logger, Module } from '@nestjs/common';
-import { INJECTION_TOKENS } from './domain/constants/injection-tokens';
-import { TransactionsController } from './infra/http/controllers/transaction.controller';
-import { InMemoryTransactionRepository } from './infra/memory/transaction-memory.repository';
+import { INJECTION_TOKENS } from './interfaces/constants/injection-tokens';
+import { TransactionsController } from './controllers/transaction.controller';
+import { InMemoryTransactionRepository } from './repositories/transaction-memory.repository';
 import { PinoLogger } from './infra/logger/logger.service';
 
 // Use Cases
-import { CreateTransactionUseCase } from './application/use-cases/create-transaction.use-case';
-import { DeleteAllTransactionsUseCase } from './application/use-cases/delete-all-transactions.use-case';
-import { GetStatisticsUseCase } from './application/use-cases/get-statistics.use-case';
-import { TransactionRepository } from './domain/repositories/transaction-repository.interface';
+import { CreateTransactionUseCase } from './use-cases/create-transaction.use-case';
+import { DeleteAllTransactionsUseCase } from './use-cases/delete-all-transactions.use-case';
+import { GetStatisticsUseCase } from './use-cases/get-statistics.use-case';
+import { TransactionRepository } from './interfaces/transaction-repository.interface';
+import { HealthController } from './controllers/health.controller';
 
 @Module({
-  controllers: [TransactionsController],
+  controllers: [TransactionsController, HealthController],
   providers: [
-    // Use Cases
     CreateTransactionUseCase,
     DeleteAllTransactionsUseCase,
     {
@@ -24,8 +24,6 @@ import { TransactionRepository } from './domain/repositories/transaction-reposit
       ) => new GetStatisticsUseCase(repository, logger, 60),
       inject: [INJECTION_TOKENS.TRANSACTION_REPOSITORY, INJECTION_TOKENS.LOGGER],
     },
-
-    // Repository & Logger
     {
       provide: INJECTION_TOKENS.TRANSACTION_REPOSITORY,
       useClass: InMemoryTransactionRepository,
