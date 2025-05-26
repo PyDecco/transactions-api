@@ -1,6 +1,6 @@
-import { GetStatisticsUseCase } from '../get-statistics.use-case';
-import { TransactionRepository } from '../../../domain/repositories/transaction-repository.interface';
-import { Logger } from '../../../domain/interfaces/logger.interface';
+import { GetStatisticsUseCase } from '@/use-cases/get-statistics.use-case';
+import { TransactionRepository } from '@/interfaces/transaction-repository.interface';
+import { Logger } from '@/interfaces/logger.interface';
 
 describe('GetStatisticsUseCase', () => {
   let useCase: GetStatisticsUseCase;

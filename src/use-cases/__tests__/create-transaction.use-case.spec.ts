@@ -1,6 +1,6 @@
-import { CreateTransactionUseCase } from '../create-transaction.use-case';
-import { TransactionRepository } from '../../../domain/repositories/transaction-repository.interface';
-import { Logger } from '../../../domain/interfaces/logger.interface';
+import { CreateTransactionUseCase } from '@/use-cases/create-transaction.use-case';
+import { TransactionRepository } from '@/interfaces/transaction-repository.interface';
+import { Logger } from '@/interfaces/logger.interface';
 import { UnprocessableEntityException } from '@nestjs/common';
 
 describe('CreateTransactionUseCase', () => {

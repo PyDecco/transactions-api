@@ -1,6 +1,6 @@
-import { DeleteAllTransactionsUseCase } from '../delete-all-transactions.use-case';
-import { TransactionRepository } from '../../../domain/repositories/transaction-repository.interface';
-import { Logger } from '../../../domain/interfaces/logger.interface';
+import { DeleteAllTransactionsUseCase } from '@/use-cases/delete-all-transactions.use-case';
+import { TransactionRepository } from '@/interfaces/transaction-repository.interface';
+import { Logger } from '@/interfaces/logger.interface';
 
 describe('DeleteAllTransactionsUseCase', () => {
   let useCase: DeleteAllTransactionsUseCase;
