@@ -61,7 +61,6 @@ yarn
 ```env
 PORT=3000
 LOG_LEVEL=debug
-STATISTICS_WINDOW_SECONDS=60
 ```
 
 4. Execute em modo desenvolvimento:
@@ -79,7 +78,6 @@ yarn start:dev
 ```env
 PORT=3000
 LOG_LEVEL=debug
-STATISTICS_WINDOW_SECONDS=60
 ```
 
 2. Suba os containers:
